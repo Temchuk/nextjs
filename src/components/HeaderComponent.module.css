@@ -1,15 +1,28 @@
+/* HeaderComponent.module.css */
+
 .header {
+    padding: 10px;
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    background-color: #f8f9fa;
-    height: 2em;
+    align-items: center;
+}
+
+/* Стилі для світлої теми */
+.light {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Стилі для темної теми */
+.dark {
+    background-color: #333;
+    color: #fff;
 }
 
 .link {
     margin-right: 15px;
     text-decoration: none;
-    color: #0070f3;
+    color: inherit; /* Використовуємо колір, який визначено темою */
 }
 
 .link:hover {
