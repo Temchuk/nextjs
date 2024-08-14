@@ -1,0 +1,82 @@
+#container1 {
+    display: flex;
+    margin: 30px 20px 30px 50px;
+    opacity: 0.8;
+}
+
+
+#button1{
+    margin-right: 20px;
+}
+
+
+
+
+#h11{
+    margin-bottom: 30px;
+    font-size: 50px;
+}
+#container{
+    display: flex;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+
+#p1{
+    color: #20bcc6;
+    font-weight: bold ;
+}
+
+
+
+
+#myh2{
+    margin-bottom: 20px;
+}
+#ImageIDContainer{
+    margin-right: 10%;
+    margin-left: 5%;
+}
+
+
+
+
+.link {
+    margin-right: 15px;
+    text-decoration: none;
+    color: inherit; /* Використовуємо колір, який визначено темою */
+}
+
+.link:hover {
+    text-decoration: none;
+    color: #20bcc6;
+}
+
+/* MoviePageID.module.css */
+
+#genresContainer {
+    display: flex;
+    gap: 10px; /* Відстань між жанрами */
+    margin-bottom: 10px;
+}
+
+.genreLink {
+    padding: 5px 10px;
+    background-color: #0070f3;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.genreLink:hover {
+    background-color: #005bb5;
+}
+
+
+
+.releaseDateValue {
+    color: #20bcc6; /* Колір для фактичної дати */
+    margin-left: 10px;
+}
