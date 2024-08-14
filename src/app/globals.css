@@ -1,11 +1,55 @@
 /* src/app/globals.css */
 
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body.light {
     background-color: #fff;
     color: #000;
 }
 
 body.dark {
-    background-color: #000;
+    background-color: #182936;
     color: #fff;
+}
+
+html{
+    font-family: Inter, sans-serif  ;
+
+}
+
+
+#container1 {
+    display: flex;
+    margin: 30px 20px 30px 50px;
+    opacity: 0.8;
+}
+
+
+#container{
+    display: flex;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+#ImageIDcontainer{
+    margin-right: 10%;
+}
+
+#p1{
+    color: #20bcc6;
+}
+
+#button1{
+    margin-right: 20px;
+}
+
+
+#h11{
+    margin-left: 50px;
+}
+
+#myh2{
+    margin-bottom: 20px;
 }
