@@ -1,10 +1,11 @@
 /* HeaderComponent.module.css */
 
 .header {
-    padding: 20px 50px;
+    /*padding: 20px 50px;*/
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     align-items: center;
+    height: 70px;
 
 }
 
@@ -21,9 +22,12 @@
 }
 
 .link {
-    margin-right: 15px;
+
     text-decoration: none;
     color: inherit; /* Використовуємо колір, який визначено темою */
+    margin: 20px 15px  ;
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .link:hover {

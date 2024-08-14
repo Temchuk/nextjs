@@ -17,7 +17,7 @@ const MoviePage = async ({ params }: { params: { id: string } }) => {
             <div id={styles.container1}>
                 <Link id={styles.button1} href="/moives" passHref>
                     <img
-                        src="https://img.icons8.com/ios-filled/50/000000/back.png"
+                        src="https://img.icons8.com/flat-round/64/back--v1.png"
                         alt="Back Arrow Icon"
                         style={{width: '24px', height: '24px'}}
                     />

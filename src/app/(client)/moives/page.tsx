@@ -29,7 +29,40 @@ const MoviesPage = ({ searchParams }: { searchParams: { page?: string } }) => {
     let decoration;
     return (
         <div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '20px', margin: '50px' }}>
+
+            <div style={{
+                display: 'flex',
+                margin: '30px 20px 30px 50px',
+                opacity: '0.8',
+
+            }}>
+                <Link style={{marginRight: '20px'}} href="/" passHref>
+                    <img
+                        src="https://img.icons8.com/flat-round/64/back--v1.png"
+                        alt="Back Arrow Icon"
+                        style={{width: '24px', height: '24px'}}
+                    />
+                </Link>
+                <Link style={{
+                    marginRight: '15px',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                }} href='/'>HOME</Link>
+                <Link style={{
+                    marginRight: '15px',
+                    textDecoration: 'none',
+                    color: '#20bcc6',
+                }}  href='/moives'>MOVIES</Link>
+
+            </div>
+
+
+            <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+                gap: '20px',
+                margin: '50px'
+            }}>
                 {allMovies.map(movie => (
                     <Link key={movie.id} href={`/moives/${movie.id}`}>
                         <div>
@@ -48,7 +81,14 @@ const MoviesPage = ({ searchParams }: { searchParams: { page?: string } }) => {
             </div>
 
             {/* Пагінація */}
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px', gap: '10px', marginBottom: '50px' }}>
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginTop: '20px',
+                gap: '10px',
+                marginBottom: '50px'
+            }}>
                 {/* Кнопка попередньої сторінки */}
                 <button
                     onClick={() => handlePageChange(currentPage - 1)}
