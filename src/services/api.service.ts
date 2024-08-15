@@ -39,3 +39,18 @@ export const getMoviesByGenre = async (genreId: string): Promise<any[]> => {
     const data = await response.json();
     return data.results; // Повертаємо масив фільмів для конкретного жанру
 };
+
+
+// Пошук фільмів за ключовим словом
+export const getMoviesByKeyword = async (query: string): Promise<any[]> => {
+    const response = await fetch(`https://api.themoviedb.org/3/search/keyword?api_key=${API_KEY}&query=${encodeURIComponent(query)}`);
+    const data = await response.json();
+    return data.results; // Повертаємо результати пошуку
+};
+
+// Пошук фільмів за назвою
+export const getMoviesBySearchQuery = async (query: string): Promise<any[]> => {
+    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}`);
+    const data = await response.json();
+    return data.results; // Повертаємо результати пошуку
+};
