@@ -25,9 +25,13 @@ const SearchPage = () => {
     return (
         <div>
             <h1>Search Results for: {query}</h1>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '20px' }}>
+            <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+                gap: '20px'
+            }}>
                 {movies.map(movie => (
-                    <Link key={movie.id} href={`/movies/${movie.id}`}>
+                    <Link key={movie.id} href={`/moives/${movie.id}`}>
                         <div style={{ cursor: 'pointer' }}>
                             <Image
                                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

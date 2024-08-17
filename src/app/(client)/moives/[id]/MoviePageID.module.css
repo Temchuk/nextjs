@@ -1,66 +1,55 @@
-#container1 {
-    display: flex;
-    margin: 30px 20px 30px 50px;
-    opacity: 0.8;
 
+.linkNavigation {
+    margin-right: 15px;
+    text-decoration: none;
+    color: inherit; /* Використовуємо колір, який визначено темою */
+    margin-top: 5px;
+}
+
+.linkNavigation:hover {
+    text-decoration: none;
+    color: #20bcc6;
+}
+
+.titleColorNav{
+    color: #20bcc6;
+    font-weight: bold ;
+    margin-top: 5px;
 }
 
 
-#button1{
-    margin-right: 20px;
-}
-
-
-
-
-#h11{
-    margin-bottom: 30px;
-    font-size: 50px;
-}
-#container{
+.characteristics{
     display: flex;
     margin-left: 50px;
     margin-top: 30px;
 }
 
-
-#p1{
-    color: #20bcc6;
-    font-weight: bold ;
+.titleOriginal{
+    margin-bottom: 30px;
+    font-size: 50px;
 }
 
 
 
 
-#myh2{
+.release{
     margin-bottom: 20px;
 }
-#ImageIDContainer{
-    margin-right: 10%;
-    margin-left: 5%;
+
+
+.releaseDateValue {
+    color: #20bcc6; /* Колір для фактичної дати */
+    margin-left: 10px;
 }
 
-
-
-
-.link {
-    margin-right: 15px;
-    text-decoration: none;
-    color: inherit; /* Використовуємо колір, який визначено темою */
-}
-
-.link:hover {
-    text-decoration: none;
-    color: #20bcc6;
-}
-
-/* MoviePageID.module.css */
-
-#genresContainer {
+.genresContainer {
     display: flex;
     gap: 10px; /* Відстань між жанрами */
     margin-bottom: 10px;
 }
+
+
+
 
 .genreLink {
     padding: 5px 10px;
@@ -77,7 +66,15 @@
 
 
 
-.releaseDateValue {
-    color: #20bcc6; /* Колір для фактичної дати */
-    margin-left: 10px;
+#ImageIDContainer{
+    margin-right: 10%;
+    margin-left: 5%;
 }
+
+
+
+
+/* MoviePageID.module.css */
+
+
+

@@ -5,7 +5,12 @@ import { getAllMovies } from "@/services/api.service";
 import Link from "next/link";
 import Image from "next/image";
 import StarRating from "@/components/StarRating";
-import styles from './Pagination.module.css';
+import paginationStyles from './Pagination.module.css';
+import moviesStyles from './Movies.module.css';
+import styles from "@/app/page.module.css";
+
+
+
 
 const MoviesPage = ({ searchParams }: { searchParams: { page?: string } }) => {
     const [currentPage, setCurrentPage] = useState(parseInt(searchParams.page || '1', 10));
@@ -30,12 +35,7 @@ const MoviesPage = ({ searchParams }: { searchParams: { page?: string } }) => {
     return (
         <div>
 
-            <div style={{
-                display: 'flex',
-                margin: '30px 20px 30px 50px',
-                opacity: '0.8',
-
-            }}>
+            <div className={styles.treeNavigation}>
                 <Link style={{marginRight: '20px'}} href="/" passHref>
                     <img
                         src="https://img.icons8.com/flat-round/64/back--v1.png"
@@ -43,28 +43,16 @@ const MoviesPage = ({ searchParams }: { searchParams: { page?: string } }) => {
                         style={{width: '24px', height: '24px'}}
                     />
                 </Link>
-                <Link style={{
-                    marginRight: '15px',
-                    textDecoration: 'none',
-                    color: 'inherit',
-                }} href='/'>HOME</Link>
-                <Link style={{
-                    marginRight: '15px',
-                    textDecoration: 'none',
-                    color: '#20bcc6',
-                }}  href='/moives'>MOVIES</Link>
+                <Link className={styles.linkNavigation} style={{color: 'inherit',}} href='/'>HOME</Link>
+                <Link className={styles.linkNavigation} style={{color: '#20bcc6',}}  href='/moives'>MOVIES</Link>
 
             </div>
 
 
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-                gap: '20px',
-                margin: '50px'
-            }}>
+
+            <div className={moviesStyles.moviesDivMaster} >
                 {allMovies.map(movie => (
-                    <Link key={movie.id} href={`/moives/${movie.id}`}>
+                    <Link  style={{ textDecoration: 'none'}} key={movie.id} href={`/moives/${movie.id}`}>
                         <div>
                             <Image
                                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -81,33 +69,26 @@ const MoviesPage = ({ searchParams }: { searchParams: { page?: string } }) => {
             </div>
 
             {/* Пагінація */}
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginTop: '20px',
-                gap: '10px',
-                marginBottom: '50px'
-            }}>
+            <div className={moviesStyles.numberPagination}>
                 {/* Кнопка попередньої сторінки */}
                 <button
                     onClick={() => handlePageChange(currentPage - 1)}
                     disabled={currentPage <= 1}
-                    className={styles.paginationButton}
+                    className={paginationStyles.paginationButton}
                 >
                     &lt; Previous
                 </button>
 
                 {/* Номери сторінок */}
                 {currentPage > 1 && (
-                    <Link href={`?page=${currentPage - 1}`} passHref>
-                        <span className={styles.paginationNumber}>{currentPage - 1}</span>
+                    <Link style={{textDecoration: 'none'}} href={`?page=${currentPage - 1}`} passHref>
+                        <span className={paginationStyles.paginationNumber}>{currentPage - 1}</span>
                     </Link>
                 )}
-                <span className={`${styles.paginationNumber} ${styles.current}`}>{currentPage}</span>
+                <span className={`${paginationStyles.paginationNumber} ${paginationStyles.current}`}>{currentPage}</span>
                 {currentPage < totalPages && (
-                    <Link href={`?page=${currentPage + 1}`} passHref>
-                        <span className={styles.paginationNumber}>{currentPage + 1}</span>
+                    <Link style={{ textDecoration: 'none'}} href={`?page=${currentPage + 1}`} passHref>
+                        <span className={paginationStyles.paginationNumber}>{currentPage + 1}</span>
                     </Link>
                 )}
 
@@ -115,7 +96,7 @@ const MoviesPage = ({ searchParams }: { searchParams: { page?: string } }) => {
                 <button
                     onClick={() => handlePageChange(currentPage + 1)}
                     disabled={currentPage >= totalPages}
-                    className={styles.paginationButton}
+                    className={paginationStyles.paginationButton}
                 >
                     Next &gt;
                 </button>

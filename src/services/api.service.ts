@@ -1,4 +1,4 @@
-const API_KEY = '8d1f8bdd5fb0a66ec4f26fbf2db03480'; // Вставте тут свій API-ключ
+const API_KEY = '8d1f8bdd5fb0a66ec4f26fbf2db03480'; // Ваш API-ключ
 
 // Отримуємо всі фільми з підтримкою пагінації
 export const getAllMovies = async (page: number = 1): Promise<any> => {
@@ -41,16 +41,12 @@ export const getMoviesByGenre = async (genreId: string): Promise<any[]> => {
 };
 
 
-// Пошук фільмів за ключовим словом
-export const getMoviesByKeyword = async (query: string): Promise<any[]> => {
-    const response = await fetch(`https://api.themoviedb.org/3/search/keyword?api_key=${API_KEY}&query=${encodeURIComponent(query)}`);
-    const data = await response.json();
-    return data.results; // Повертаємо результати пошуку
-};
-
-// Пошук фільмів за назвою
-export const getMoviesBySearchQuery = async (query: string): Promise<any[]> => {
+// Пошук фільмів за назвою (title)
+export const getMoviesByTitle = async (query: string): Promise<any[]> => {
     const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}`);
+    if (!response.ok) {
+        throw new Error('Failed to fetch movies by title');
+    }
     const data = await response.json();
     return data.results; // Повертаємо результати пошуку
 };

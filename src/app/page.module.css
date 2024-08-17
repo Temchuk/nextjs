@@ -1,0 +1,95 @@
+
+
+.treeNavigation{
+    display: flex;
+    margin: 30px 20px 30px 50px;
+    opacity: 0.8;
+}
+
+.linkNavigation{
+    margin-right: 15px;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+
+.movieRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    position: relative;
+}
+
+.arrow {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.arrowButton {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.moviesContainer {
+    display: flex;
+    gap: 20px;
+}
+
+.movieItem {
+    text-align: center;
+}
+
+.movieImage {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.movieTitle {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+
+.footer {
+    background-color: rgba(184, 181, 181, 0.24);
+    padding: 20px;
+    margin-top: 50px;
+    text-align: center;
+    border-top: 1px solid #080823;
+
+}
+
+.contactInfo {
+    margin-bottom: 20px;
+    font-weight: bold;
+
+}
+
+.contactIcon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-bottom: 4px;
+
+}
+
+.socialLinks {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+
+}
+
+.socialIcon {
+    width: 50px;
+    height: 50px;
+}

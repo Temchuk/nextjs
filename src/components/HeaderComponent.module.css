@@ -1,9 +1,9 @@
-/* HeaderComponent.module.css */
+
 
 .header {
     /*padding: 20px 50px;*/
     display: flex;
-    /*justify-content: space-between;*/
+
     align-items: center;
     height: 70px;
 
@@ -33,4 +33,14 @@
 .link:hover {
     text-decoration: none;
     color: #20bcc6;
+}
+
+
+
+.loginSearch{
+    position: absolute;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }

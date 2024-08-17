@@ -5,6 +5,8 @@ import { getGenres, getMoviesByGenre } from '@/services/api.service';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
+import styles from "@/app/page.module.css";
+import genresStyles from './Genres.module.css';
 
 const GenresPage = () => {
     const searchParams = useSearchParams();
@@ -22,6 +24,7 @@ const GenresPage = () => {
         fetchGenres();
     }, []);
 
+
     useEffect(() => {
         if (selectedGenre !== null) {
             const fetchMovies = async () => {
@@ -37,12 +40,7 @@ const GenresPage = () => {
 
 
         <div>
-            <div style={{
-                display: 'flex',
-                margin: '30px 20px 30px 50px',
-                opacity: '0.8',
-
-            }}>
+            <div className={styles.treeNavigation}>
                 <Link style={{marginRight: '20px'}} href="/moives" passHref>
                     <img
                         src="https://img.icons8.com/flat-round/64/back--v1.png"
@@ -50,32 +48,16 @@ const GenresPage = () => {
                         style={{width: '24px', height: '24px'}}
                     />
                 </Link>
-                <Link style={{
-                    marginRight: '15px',
-                    textDecoration: 'none',
-                    color: 'inherit',
-                }} href='/'>HOME</Link>
-                <Link style={{
-                    marginRight: '15px',
-                    textDecoration: 'none',
-                    color: 'inherit',
-                }} href='/moives'>MOVIES</Link>
-                <Link style={{
-                    marginRight: '15px',
-                    textDecoration: 'none',
-                    color: '#20bcc6',
-                }} href='/genres'>GENRES</Link>
+                <Link className={styles.linkNavigation} style={{color: 'inherit'}} href='/'>HOME</Link>
+                <Link className={styles.linkNavigation} style={{color: 'inherit'}} href='/moives'>MOVIES</Link>
+                <Link className={styles.linkNavigation} style={{color: '#20bcc6'}} href='/genres'>GENRES</Link>
 
             </div>
 
             <div style={{display: 'flex'}}>
 
-                {/* Ліва панель з жанрами */}
-                <div style={{
-                    width: '20%',
-                    padding: '20px',
-                    background: '#757578'
-                }}>
+                 {/*Ліва панель з жанрами */}
+                <div className={genresStyles.ganreLeftConteiner}>
                     <h1 style={{textAlign: 'center'}}>Movie Genres</h1>
                     <ul style={{listStyleType: 'none', padding: '30px'}}>
                         {genres.map(genre => (
@@ -85,16 +67,8 @@ const GenresPage = () => {
                                     style={{
                                         backgroundColor: selectedGenre === genre.id ? '#0070f3' : 'transparent',
                                         color: selectedGenre === genre.id ? 'white' : '#20bcc6',
-                                        padding: '10px',
-                                        border: 'none',
-                                        cursor: 'pointer',
-                                        textAlign: 'center',
-                                        width: '100%',
-                                        fontSize: '20px',
-                                        borderRadius: '30px',
-                                        fontWeight: 'bold',
-
                                     }}
+                                    className={genresStyles.buttonLeft}
                                 >
                                     {genre.name}
                                 </button>
@@ -104,15 +78,11 @@ const GenresPage = () => {
                 </div>
 
                 {/* Права панель з фільмами */}
-                <div style={{width: '75%', padding: '20px'}}>
-                    <h1 style={{marginBottom: '20px', color: '#20bcc6'}}>Movies </h1>
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-                        gap: '20px'
-                    }}>
+                <div style={{width: '75%', padding: ' 0 30px 30px 30px'}}>
+                    {/*<h1 className={genresStyles.moviesTitleRight}>Movies </h1>*/}
+                    <div className={genresStyles.moviesRight}>
                         {movies.map(movie => (
-                            <Link key={movie.id} href={`/moives/${movie.id}`}>
+                            <Link style={{textDecoration: 'none'}} key={movie.id} href={`/moives/${movie.id}`}>
                                 <div style={{cursor: 'pointer'}}>
                                     <Image
                                         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
