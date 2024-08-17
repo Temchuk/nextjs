@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { getMoviesByKeyword } from '@/services/api.service';
+
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -11,16 +11,6 @@ const SearchPage = () => {
     const query = searchParams.get('query');
     const [movies, setMovies] = useState<any[]>([]);
 
-    useEffect(() => {
-        const fetchMovies = async () => {
-            if (query) {
-                const moviesData = await getMoviesByKeyword(query);
-                setMovies(moviesData);
-            }
-        };
-
-        fetchMovies();
-    }, [query]);
 
     return (
         <div>

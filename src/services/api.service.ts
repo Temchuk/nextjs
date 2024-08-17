@@ -31,7 +31,7 @@ export const getGenres = async (): Promise<any[]> => {
 };
 
 // Отримуємо фільми за конкретним жанром
-export const getMoviesByGenre = async (genreId: string): Promise<any[]> => {
+export const getMoviesByGenre = async (genreId: number): Promise<any[]> => {
     const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`);
     if (!response.ok) {
         throw new Error(`Failed to fetch movies for genre ID ${genreId}`);

@@ -15,6 +15,7 @@ const MoviePage = async ({ params }: { params: { id: string } }) => {
     return (
         <div>
 
+
             <div className={styles.treeNavigation}>
                 <Link style={{marginRight: '20px'}} href="/moives" passHref>
                     <img
@@ -71,6 +72,7 @@ const MoviePage = async ({ params }: { params: { id: string } }) => {
                 </div>
                 <div id={stylesMoviePID.ImageIDContainer}>
                     <Image
+                        className={stylesMoviePID.imgWeight}
                         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                         alt={movie.title}
                         width={450}
@@ -79,6 +81,7 @@ const MoviePage = async ({ params }: { params: { id: string } }) => {
                 </div>
             </div>
         </div>
+
     );
 };
 

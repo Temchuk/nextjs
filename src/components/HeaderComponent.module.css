@@ -1,5 +1,7 @@
 
 
+
+
 .header {
     /*padding: 20px 50px;*/
     display: flex;
@@ -38,9 +40,81 @@
 
 
 .loginSearch{
-    position: absolute;
-    right: 30px;
+    /*position: absolute;*/
+    /*right: 30px;*/
     display: flex;
     align-items: center;
     flex-direction: row;
+    margin-left: 80px;
 }
+
+
+
+.navigationInput{
+    width: 400px;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1200px){
+
+    .header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 120%;
+        padding: 10px 20px;
+    }
+
+    .navigationInput{
+        width: 200px;
+    }
+}
+
+
+
+
+/* Адаптивність для маленьких екранів */
+@media screen and (max-width: 600px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 150%;
+        padding: 10px 20px;
+    }
+
+    .link {
+        font-size: 18px;
+        /*margin: 5px 10px;*/
+    }
+
+    .navigationInput {
+        width: 110px; /* Зменшуємо ширину пошукової стрічки */
+        font-size: 14px;
+    }
+
+    .loginSearch {
+        width: 100%;
+        justify-content: center;
+        bottom: 10px; /* Забезпечуємо, щоб компоненти знаходилися внизу хедера */
+        position: relative; /* Забезпечуємо адаптивність для маленьких екранів */
+        transform: translateY(0); /* Відключаємо центрування для маленьких екранів */
+    }
+
+    .loginSearch button {
+        height: 30px;
+        width: 60px;
+        font-size: 14px;
+    }
+
+    .loginSearch img {
+        height: 20px;
+        width: 20px;
+    }
+
+    .allLink{
+
+        margin-bottom: 20px;
+    }
+
+}
+

@@ -53,14 +53,17 @@ const MoviesPage = ({ searchParams }: { searchParams: { page?: string } }) => {
             <div className={moviesStyles.moviesDivMaster} >
                 {allMovies.map(movie => (
                     <Link  style={{ textDecoration: 'none'}} key={movie.id} href={`/moives/${movie.id}`}>
-                        <div>
+                        <div className={moviesStyles.moviesTitle}>
                             <Image
                                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                                 alt={movie.title}
                                 width={200}
                                 height={300}
+                                className={moviesStyles.moviesImg}
                             />
-                            <h3 style={{color: '#20bcc6', textDecoration: 'none'}}>{movie.title}</h3>
+                            <h3
+
+                                style={{color: '#20bcc6', textDecoration: 'none'}}>{movie.title}</h3>
 
                             <StarRating rating={movie.vote_average}/>
                         </div>

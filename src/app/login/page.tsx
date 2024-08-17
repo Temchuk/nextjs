@@ -12,11 +12,31 @@ const LoginPage = () => {
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Виконайте перевірку логіна і пароля
-        if (username === 'admin' && password === 'password') {
+        const users = JSON.parse(localStorage.getItem('users') || '[]');
+
+        const user = users.find((u: any) => u.username === username && u.password === password);
+
+        if (user) {
+            alert('Login successful!');
+            localStorage.setItem('currentUser', username);
             router.push('/'); // Перенаправляємо на головну сторінку після успішного входу
         } else {
             alert('Invalid login credentials');
+            document.getElementById('registerButton')?.classList.add(styles.highlight);
+        }
+    };
+
+    const handleRegister = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        const users = JSON.parse(localStorage.getItem('users') || '[]');
+
+        if (users.find((u: any) => u.username === username)) {
+            alert('Username already taken');
+        } else {
+            users.push({ username, password });
+            localStorage.setItem('users', JSON.stringify(users));
+            alert('Registration successful!');
         }
     };
 
@@ -43,6 +63,10 @@ const LoginPage = () => {
                 />
 
                 <button type="submit">Login</button>
+            </form>
+
+            <form onSubmit={handleRegister} className={styles.form}>
+                <button id="registerButton" type="submit">Register</button>
             </form>
         </div>
     );

@@ -1,4 +1,3 @@
-
 .linkNavigation {
     margin-right: 15px;
     text-decoration: none;
@@ -72,9 +71,75 @@
 }
 
 
+@media screen and (min-width: 600px) and (max-width: 1200px){
+    #ImageIDContainer {
+        width: 50%; /* Зменшення ширини для пропорційного масштабування */
+        margin: 0 auto; /* Центрування зображення */
+    }
+
+    .characteristics {
+        flex-direction: column; /* Вертикальне розташування елементів на планшетах */
+        /*align-items: center;*/
+    }
+
+    .titleOriginal {
+        font-size: 35px;
+        /*text-align: center;*/
+    }
 
 
-/* MoviePageID.module.css */
+
+}
+
+
+/* Адаптивність для екранів до 600px */
+@media screen and (max-width: 600px) {
+    .characteristics {
+        margin-left: 20px;
+        margin-right: 20px;
+        flex-direction: column; /* Вертикальне розташування елементів на маленьких екранах */
+    }
+
+    .titleOriginal {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .release {
+        font-size: 16px;
+    }
+
+    .releaseDateValue {
+        font-size: 16px;
+        margin-left: 5px;
+    }
 
 
 
+    .imgWeight{
+        margin: 20px;
+        width: 80%; /* Ширина на 100% */
+        height: auto;
+    }
+
+    .genreLink {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    .linkNavigation {
+        font-size: 16px;
+    }
+
+    .treeNavigation {
+        flex-direction: column;
+        align-items: center;
+        margin: 10px 0;
+    }
+
+    .titleColorNav {
+        font-size: 18px;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
