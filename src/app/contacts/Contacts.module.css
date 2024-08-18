@@ -1,0 +1,71 @@
+
+.contactsParagrah {
+    margin-bottom: 20px;
+    font-size: x-large;
+}
+
+.contactsPage {
+    display: flex;
+    flex-direction: row;
+}
+
+.infoSection {
+    width: 50%;
+    margin: 50px;
+}
+
+.title {
+    margin-bottom: 50px;
+    font-size: xxx-large;
+}
+
+.socialLinks {
+    margin-left: -10px;
+}
+
+.mapContainer {
+    width: 70%;
+    margin: 5% 8% 5% 0;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1200px){
+
+    .contactsPage {
+        display: flex;
+        flex-direction: column;
+    }
+    .infoSection {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .mapContainer {
+        width: 60%;
+        margin: 20px ;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .contactsParagrah {
+        font-size: medium;
+
+    }
+    .contactsPage {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .title {
+        font-size: large;
+        margin-bottom: 20px;
+    }
+
+    .socialLinks img {
+        width: 30px;
+    }
+
+    .mapContainer {
+        width: 100%;
+        height: auto;
+    }
+}

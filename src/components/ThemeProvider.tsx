@@ -1,5 +1,5 @@
-// ThemeProvider.tsx
-"use client"; // Додаємо директиву для клієнтського компонента
+
+"use client";
 
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
@@ -9,8 +9,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const theme = useSelector((state: RootState) => state.theme.theme);
 
     useEffect(() => {
-        document.body.className = theme; // Змінюємо клас на body залежно від теми
+        document.body.className = theme;
     }, [theme]);
 
-    return <>{children}</>; // Повертаємо дітей компонента без змін
+    return <>{children}</>;
 }

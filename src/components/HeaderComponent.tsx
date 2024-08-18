@@ -15,16 +15,15 @@ const HeaderComponent = () => {
     const theme = useSelector((state: RootState) => state.theme.theme);
     const [searchQuery, setSearchQuery] = useState('');
     const [isNotFound, setIsNotFound] = useState(false);
-    const [currentUser, setCurrentUser] = useState<string | null>(null);
+    const [username, setUsername] = useState<string | null>(null);
     const router = useRouter();
 
     useEffect(() => {
-        const user = localStorage.getItem('currentUser');
-        if (user) {
-            setCurrentUser(user);
+        const storedUser = localStorage.getItem('currentUser');
+        if (storedUser) {
+            setUsername(storedUser);
         }
     }, []);
-
 
     const handleToggleTheme = () => {
         dispatch(toggleTheme());
@@ -32,13 +31,18 @@ const HeaderComponent = () => {
 
     const handleSearch = async (e: React.FormEvent) => {
         e.preventDefault();
+
         if (searchQuery.trim()) {
             try {
+                // Пошук фільмів за назвою
                 const movies = await getMoviesByTitle(searchQuery);
+
                 if (movies.length > 0) {
+                    // Перенаправляє на сторінку першого знайденого фільму
                     router.push(`/moives/${movies[0].id}`);
-                    setIsNotFound(false);
+                    setIsNotFound(false); // Залишаємо поле незмінним, якщо фільм знайдено
                 } else {
+                    // Якщо фільм не знайдено, змінює текст і збільшує поле пошуку
                     setSearchQuery('Not found!!!');
                     setIsNotFound(true);
                 }
@@ -50,25 +54,33 @@ const HeaderComponent = () => {
         }
     };
 
+    const handleLogout = () => {
+        localStorage.removeItem('currentUser');
+        setUsername(null);
+        router.push('/login'); // Переходить на сторінку входу після виходу
+    };
+
     return (
         <div className={`${styles.header} ${theme === 'dark' ? styles.dark : styles.light}`}>
-            <div>
+            <div className={styles.divLogo} >
                 <img
                     src="/LOGO.jpg"
                     alt="Logo"
                     style={{ height: '74px', marginRight: '80px' }}
                 />
             </div>
+
             <div className={styles.allLink}>
                 <Link className={styles.link} href='/'>HOME</Link>
                 <Link className={styles.link} href='/moives'>MOVIES</Link>
                 <Link className={styles.link} href='/genres'>GENRES</Link>
             </div>
+
             <div className={styles.loginSearch}>
                 <form onSubmit={handleSearch}>
                     <input
                         type="text"
-                        placeholder="Search movies..."
+                        placeholder="Search movies... "
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         style={{
@@ -89,28 +101,66 @@ const HeaderComponent = () => {
                         marginLeft: '5px',
                     }}>Search</button>
                 </form>
-                <Link href={currentUser ? '/' : '/login'} passHref style={{ margin: '0 10px' }}>
-                    <button style={{
-                        backgroundColor: '#0070f3',
-                        color: 'white',
-                        borderRadius: '5px',
-                        cursor: 'pointer',
-                        height: '25px',
-                        width: '80px',
-                        textAlign: "center",
-                    }}>
-                        {currentUser || 'Sign in'}
-                    </button>
-                </Link>
-                <button onClick={handleToggleTheme} style={{
-                    borderRadius: '20px',
-                    padding: '5px',
-                    height: '30px',
-                    width: '30px',
-                    backgroundColor: 'transparent',
-                    border: 'none',
-                    cursor: 'pointer'
-                }}>
+
+                {username ? (
+                    <>
+
+                        <div
+                            style={{
+                            marginLeft: '10px',
+                            borderRadius: '5px',
+                            textAlign: "center",
+                            height: '21px',
+                            width: '60px',
+                            border: '2px solid black',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontSize: "14px",
+                        }}>
+                            <span>{username.slice(0, 6)}</span> {/* Виводить тільки перші 6 символів */}
+                        </div>
+
+
+                        <button onClick={handleLogout} style={{
+                            backgroundColor: 'rgb(163,29,9)',
+                            color: 'white',
+                            borderRadius: '5px',
+                            cursor: 'pointer',
+                            height: '25px',
+                            width: '60px',
+                            textAlign: "center",
+                            marginLeft: '10px',
+                        }}>
+                            Logout
+                        </button>
+                    </>
+                ) : (
+                    <Link href="/login" passHref style={{margin: '0 10px'}}>
+                        <button style={{
+                            backgroundColor: '#0070f3',
+                            color: 'white',
+                            borderRadius: '5px',
+                            cursor: 'pointer',
+                            height: '25px',
+                            width: '60px',
+                            textAlign: "center",
+                        }}>
+                            Sign in
+                        </button>
+                    </Link>
+                )}
+
+                <button onClick={handleToggleTheme}
+                        style={{
+                            borderRadius: '20px',
+                            padding: '5px',
+                            height: '30px',
+                            width: '30px',
+                            backgroundColor: 'transparent',
+                            border: 'none',
+                            cursor: 'pointer'
+                        }}>
                     <img
                         src={theme === 'light' ? '/moon.png' : '/sun.png'}
                         alt={theme === 'light' ? 'Sun Icon' : 'Moon Icon'}

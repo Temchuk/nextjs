@@ -1,14 +1,8 @@
 
-
-
-
 .header {
-    /*padding: 20px 50px;*/
     display: flex;
-
     align-items: center;
     height: 70px;
-
 }
 
 /* Стилі для світлої теми */
@@ -24,7 +18,6 @@
 }
 
 .link {
-
     text-decoration: none;
     color: inherit; /* Використовуємо колір, який визначено темою */
     margin: 20px 15px  ;
@@ -38,17 +31,12 @@
 }
 
 
-
 .loginSearch{
-    /*position: absolute;*/
-    /*right: 30px;*/
-    display: flex;
+        display: flex;
     align-items: center;
     flex-direction: row;
-    margin-left: 80px;
+    margin-left: 30px;
 }
-
-
 
 .navigationInput{
     width: 400px;
@@ -72,7 +60,7 @@
 
 
 
-/* Адаптивність для маленьких екранів */
+
 @media screen and (max-width: 600px) {
     .header {
         display: flex;
@@ -84,20 +72,21 @@
 
     .link {
         font-size: 18px;
-        /*margin: 5px 10px;*/
+
     }
 
     .navigationInput {
-        width: 110px; /* Зменшуємо ширину пошукової стрічки */
+        width: 80px;
         font-size: 14px;
+        text-overflow: ellipsis;
     }
 
     .loginSearch {
         width: 100%;
         justify-content: center;
-        bottom: 10px; /* Забезпечуємо, щоб компоненти знаходилися внизу хедера */
-        position: relative; /* Забезпечуємо адаптивність для маленьких екранів */
-        transform: translateY(0); /* Відключаємо центрування для маленьких екранів */
+        bottom: 10px;
+        position: relative;
+        transform: translateY(0);
     }
 
     .loginSearch button {
@@ -112,8 +101,12 @@
     }
 
     .allLink{
-
         margin-bottom: 20px;
+    }
+
+    .divLogo{
+       margin-bottom: 5px;
+        margin-left: 80px;
     }
 
 }

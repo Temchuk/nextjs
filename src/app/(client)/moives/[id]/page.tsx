@@ -1,4 +1,4 @@
-"use client"; // Компонент клієнтський
+"use client";
 
 import React from 'react';
 import { getMovieById } from "@/services/api.service";
@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import StarRating from "@/components/StarRating";
 import stylesMoviePID from './MoviePageID.module.css';
-import styles from "@/app/page.module.css"; // Імпортуємо стилі
+import styles from "@/app/page.module.css";
 
 
 const MoviePage = async ({ params }: { params: { id: string } }) => {

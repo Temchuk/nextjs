@@ -1,8 +1,11 @@
+
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import HeaderComponent from '@/components/HeaderComponent';
 import { ClientProviders } from '@/components/ClientProviders';
+import FooterComponent from "@/components/FooterComponent";
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,7 +22,10 @@ export default function RootLayout({ children }: Readonly<PropType>) {
         <body className={inter.className}>
         <ClientProviders>
             <HeaderComponent />
-            {children}
+            <main style={{ minHeight: 'calc(100vh - 140px)' }}>
+                {children}
+            </main>
+            <FooterComponent />
         </ClientProviders>
         </body>
         </html>

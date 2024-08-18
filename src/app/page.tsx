@@ -5,7 +5,8 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { getAllMovies } from "@/services/api.service";
-import StarRating from "@/components/StarRating"; // Імпорт функції для отримання фільмів
+import StarRating from "@/components/StarRating";
+
 
 export default function Home() {
     const [movies, setMovies] = useState<any[]>([]);
@@ -60,6 +61,7 @@ export default function Home() {
                 <Link className={styles.linkNavigation} style={{color: 'inherit'}} href='/genres'>GENRES</Link>
             </div>
             <h1 style={{marginLeft: '50px'}}>Novelties of world rental 2024-2022</h1>
+
             {/* Блок з трьома картинками фільмів та стрілками */}
             <div className={styles.movieRow}>
                 <button onClick={handlePrevious} className={styles.arrowButton}>
@@ -98,32 +100,6 @@ export default function Home() {
             </div>
 
 
-            {/* Блок Footer з посиланнями на соцмережі, телефон та пошту */}
-            <footer className={styles.footer}>
-                <div className={styles.contactInfo}>
-                    <a style={{textDecoration: 'none', color: ' black'}} href="tel:+8801742-527137">
-                        <img  src="/Telephone.png" alt="Telephone" className={styles.contactIcon}/>
-                        <span  >+8801742-527137</span>
-                    </a>
-                    <a style={{textDecoration: 'none', color: ' black', marginLeft: '30px'}}
-                       href="mailto:mdmaksedur17@gmail.com">
-                        <img src="/gmail loogo.png" alt="Gmail Logo" className={styles.contactIcon}/>
-                        <span>mdmaksedur17@gmail.com</span>
-                    </a>
-                </div>
-                <div className={styles.socialLinks}>
-                    <a href="#">
-                        <img src="/Facebook.png" alt="Facebook" className={styles.socialIcon}/>
-                    </a>
-                    <a href="#">
-                        <img src="/Instagram.png" alt="Instagram" className={styles.socialIcon}/>
-                    </a>
-                    <a href="#">
-                        <img src="/Linkdin.png" alt="LinkedIn" className={styles.socialIcon}/>
-                    </a>
-                </div>
-                <span style={{color: 'black'}}>Copyright © 2024 Movies, All rights reserved. Present by Movies.</span>
-            </footer>
 
         </main>
     );

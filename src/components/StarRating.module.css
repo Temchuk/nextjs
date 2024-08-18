@@ -1,4 +1,4 @@
-/* StarRating.module.css */
+
 
 .starRating {
     display: inline-block;
@@ -6,9 +6,9 @@
 
 .starRating span {
     font-size: 20px;
-    color: #d3d3d3; /* Колір для незаповнених зірок */
+    color: #d3d3d3; /* для незаповнених зірок */
 }
 
 .starRating .filled {
-    color: #ffc107; /* Колір для заповнених зірок */
+    color: #ffc107; /*  для заповнених зірок */
 }

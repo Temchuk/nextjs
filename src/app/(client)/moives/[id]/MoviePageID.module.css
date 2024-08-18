@@ -37,7 +37,7 @@
 
 
 .releaseDateValue {
-    color: #20bcc6; /* Колір для фактичної дати */
+    color: #20bcc6;
     margin-left: 10px;
 }
 
@@ -73,31 +73,27 @@
 
 @media screen and (min-width: 600px) and (max-width: 1200px){
     #ImageIDContainer {
-        width: 50%; /* Зменшення ширини для пропорційного масштабування */
-        margin: 0 auto; /* Центрування зображення */
+        width: 50%;
+        margin: 0 auto;
     }
 
     .characteristics {
-        flex-direction: column; /* Вертикальне розташування елементів на планшетах */
-        /*align-items: center;*/
+        flex-direction: column;
     }
 
     .titleOriginal {
         font-size: 35px;
-        /*text-align: center;*/
     }
-
-
 
 }
 
 
-/* Адаптивність для екранів до 600px */
+
 @media screen and (max-width: 600px) {
     .characteristics {
         margin-left: 20px;
         margin-right: 20px;
-        flex-direction: column; /* Вертикальне розташування елементів на маленьких екранах */
+        flex-direction: column;
     }
 
     .titleOriginal {
@@ -115,10 +111,9 @@
     }
 
 
-
     .imgWeight{
         margin: 20px;
-        width: 80%; /* Ширина на 100% */
+        width: 80%;
         height: auto;
     }
 

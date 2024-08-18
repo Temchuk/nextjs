@@ -1,0 +1,117 @@
+.footer {
+    background-color: rgba(184, 181, 181, 0.24);
+    padding: 20px;
+    margin-top: 50px;
+    border-top: 1px solid #080823;
+
+}
+
+.allSections{
+    display: flex;
+    flex-direction: row;
+}
+
+.sections{
+
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    font-weight: bold;
+}
+
+
+.sectionsAddress{
+    margin-bottom: 15px;
+}
+
+
+
+.footerSections{
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+.contactInfo {
+    margin-bottom: 20px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.contactIcon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-bottom: 4px;
+}
+
+
+
+.socialIcon {
+    width: 50px;
+    height: 50px;
+    margin-left: -10px;
+}
+
+
+
+.footerCopyright{
+    margin: 30px 0 20px 50px;
+}
+
+
+
+.socialLinks {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+
+
+@media screen and (min-width: 600px) and (max-width: 1200px){
+    .allSections{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .socialLinks {
+        display: flex;
+        justify-content: left;
+    }
+
+
+    .sections{
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+    .allSections{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .socialLinks {
+        display: flex;
+        justify-content: left;
+    }
+    .sections{
+        margin-bottom: 20px;
+    }
+}

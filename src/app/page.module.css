@@ -57,42 +57,11 @@
 
 
 
-.footer {
-    background-color: rgba(184, 181, 181, 0.24);
-    padding: 20px;
-    margin-top: 50px;
-    text-align: center;
-    border-top: 1px solid #080823;
 
-}
 
-.contactInfo {
-    margin-bottom: 20px;
-    font-weight: bold;
 
-}
 
-.contactIcon {
-    width: 24px;
-    height: 24px;
-    vertical-align: middle;
-    margin-right: 8px;
-    margin-bottom: 4px;
 
-}
-
-.socialLinks {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
-
-}
-
-.socialIcon {
-    width: 50px;
-    height: 50px;
-}
 
 @media screen and (min-width: 600px) and (max-width: 1200px){
     .moviesContainer, .movieItem{

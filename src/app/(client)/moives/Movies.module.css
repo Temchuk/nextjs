@@ -19,24 +19,17 @@
 
 @media screen and (max-width: 600px){
     .moviesDivMaster{
-        /*display: flex;*/
-        /*justify-content: center;*/
-        /*align-items: center;*/
     }
 
     .moviesImg{
         width: 90%;
         height: auto;
         margin: 20px;
-        /*justify-content: center;*/
     }
+
     .moviesTitle{
         display: flex;
         flex-direction: column;
-        /*justify-content: center;*/
         align-items: center;
     }
-
-
-
 }

@@ -9,7 +9,7 @@ type StarRatingProps = {
 };
 
 const StarRating: React.FC<StarRatingProps> = ({ rating, maxRating = 10 }) => {
-    const stars = Math.round((rating / maxRating) * 5); // Конвертуємо рейтинг у 5-зіркову шкалу
+    const stars = Math.round((rating / maxRating) * 5); // Конвертує рейтинг у 5-зіркову шкалу
 
     return (
         <div className={styles.starRating}>

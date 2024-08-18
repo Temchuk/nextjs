@@ -12,7 +12,7 @@ const GenresPage = () => {
     const searchParams = useSearchParams();
     const initialGenre = searchParams.get('selectedGenre');
 
-    // Ініціалізуємо selectedGenre як number або null
+
     const [genres, setGenres] = useState<any[]>([]);
     const [selectedGenre, setSelectedGenre] = useState<number | null>(initialGenre ? parseInt(initialGenre, 10) : null);
     const [movies, setMovies] = useState<any[]>([]);
@@ -54,6 +54,7 @@ const GenresPage = () => {
             </div>
 
             <div style={{ display: 'flex' }}>
+
                 {/* Ліва панель з жанрами */}
                 <div className={genresStyles.genreLeftContainer}>
                     <h1 style={{ textAlign: 'center' }}>Movie Genres</h1>

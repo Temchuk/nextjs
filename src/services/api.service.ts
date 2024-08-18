@@ -1,52 +1,61 @@
-const API_KEY = '8d1f8bdd5fb0a66ec4f26fbf2db03480'; // Ваш API-ключ
 
-// Отримуємо всі фільми з підтримкою пагінації
+const ACCESS_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZDFmOGJkZDVmYjBhNjZlYzRmMjZmYmYyZGIwMzQ4MCIsIm5iZiI6MTcyNDAyMTM4OC4zODA5MzYsInN1YiI6IjY2YmE5NGI1NWVjMDA0YWE3Y2RlY2Q3YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.E2EJ53Q_UJhWW9UoWjabmoaSI-FQOclSFk8jbzgEr7A';
+
+// Загальні параметри запиту
+const requestOptions = {
+    method: 'GET',
+    headers: {
+        'Authorization': `Bearer ${ACCESS_TOKEN}`,
+        'Accept': 'application/json',
+    },
+};
+
+// всі фільми з підтримкою пагінації
 export const getAllMovies = async (page: number = 1): Promise<any> => {
-    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${page}`);
+    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?language=en-US&page=${page}&sort_by=popularity.desc`, requestOptions);
     if (!response.ok) {
         throw new Error('Failed to fetch movies');
     }
     const data = await response.json();
-    return data; // Повертаємо повний об'єкт з фільмами та інформацією про сторінки
+    return data;
 };
 
-// Отримуємо інформацію про конкретний фільм за його ID
+// інформаціЯ про конкретний фільм за його ID
 export const getMovieById = async (id: string): Promise<any> => {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`);
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}`, requestOptions);
     if (!response.ok) {
         throw new Error(`Failed to fetch movie with ID ${id}`);
     }
     const data = await response.json();
-    return data; // Повертаємо інформацію про фільм
+    return data;
 };
 
-// Отримуємо список усіх жанрів
+// список усіх жанрів
 export const getGenres = async (): Promise<any[]> => {
-    const response = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`);
+    const response = await fetch(`https://api.themoviedb.org/3/genre/movie/list`, requestOptions);
     if (!response.ok) {
         throw new Error('Failed to fetch genres');
     }
     const data = await response.json();
-    return data.genres; // Повертаємо масив жанрів
+    return data.genres;
 };
 
-// Отримуємо фільми за конкретним жанром
+// фільми за конкретним жанром
 export const getMoviesByGenre = async (genreId: number): Promise<any[]> => {
-    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`);
+    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${genreId}`, requestOptions);
     if (!response.ok) {
         throw new Error(`Failed to fetch movies for genre ID ${genreId}`);
     }
     const data = await response.json();
-    return data.results; // Повертаємо масив фільмів для конкретного жанру
+    return data.results;
 };
 
-
-// Пошук фільмів за назвою (title)
+// Пошук фільмів за назвою
 export const getMoviesByTitle = async (query: string): Promise<any[]> => {
-    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}`);
+    const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}`, requestOptions);
     if (!response.ok) {
         throw new Error('Failed to fetch movies by title');
     }
     const data = await response.json();
-    return data.results; // Повертаємо результати пошуку
+    return data.results;
 };

@@ -8,13 +8,13 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Заголовок сторінки */
+
 .h1 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* Стилі для форми */
+
 .form {
     display: flex;
     flex-direction: column;
@@ -26,14 +26,14 @@
     font-weight: bold;
 }
 
-/* Стилі для полів вводу */
+
 .input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-/* Стилі для кнопок */
+
 .button {
     padding: 10px;
     background-color: #0070f3;
@@ -48,20 +48,20 @@
     background-color: #005bb5;
 }
 
-/* Стилі для посилань */
+
 .link {
     margin-right: 15px;
     text-decoration: none;
-    color: inherit; /* Використовуємо колір, який визначено темою */
+    color: inherit;
 }
 
 /* Підсвічування кнопки реєстрації при невдалій авторизації */
 .highlight {
-    background-color: #ff6347; /* Помаранчевий колір для підсвічування */
+    background-color: #ff6347; /* Червоний колір для підсвічування */
     transition: background-color 0.3s;
 }
 
-/* Адаптивність для мобільних пристроїв */
+
 @media (max-width: 480px) {
     .container {
         margin: 20px;
